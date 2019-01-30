@@ -1,0 +1,21 @@
+{
+
+  "manifest_version": 1,
+  "name": "Email Finder",
+  "version": "1.0",
+
+  "description": "A browser extension that finds all emails in the current page. Creted by group 12 for OSSD, Spring 2019.",
+  "icons": {
+    "48": "icons/logo-48.png"
+  },
+
+  "permissions": [
+    "activeTab"
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/logo-32.png",
+    "default_title": "Email Finder",
+    "default_popup": "popup/find_emails.html"
+  }
+}
