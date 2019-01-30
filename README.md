@@ -22,7 +22,7 @@ To install locally, go to `about:debugging` in your Firefox browser and then cli
 
 Select any file within the directory `email-detector-team-12` in the pop-up provided. 
 
-The icon should now be 
+The icon should now be presented on your Firefox Browser until you close it
 
 # Contributing
 
