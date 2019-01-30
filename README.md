@@ -7,7 +7,8 @@ Identifies emails in a page using a regular expression
 This is a Firefox extension for detecting emails within a HTML webpage.
 
 Clicking the extension icon will print the found emails to the console log,
-which can be viewed with the Browser Console (ctl+shift+J)
+which can be viewed with the Browser Console (ctl+shift+J), or via the pop-up
+from this extension.
 
 # Requirements
 
@@ -31,9 +32,7 @@ existing code, and comment your code accordingly.
 
 # Support
 
-You can contact us with bugs at bugs@team12.uk 
+Plesae submit any bug reports using the Issue Tracker on GitHub for this project
 
-You may also send us written bug reports using blue ink to
+https://github.com/nyu-ossd-s19/email-detector-team-12/issues
 
-123 Windy Hill Rd
-Someplace Nice, United Kingdom
