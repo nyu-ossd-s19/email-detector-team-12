@@ -9,13 +9,12 @@
     }
     window.hasRun = true;
 
-
-    /**
-     * Runs a regular expression to find emails
-     * within a given page. Returns the strings
-     * that adhere to the regular expression as
-     * an array.
-     */
+	/**
+	 * Runs a regular expression to find emails
+	 * within a given page. Returns the strings
+	 * that adhere to the regular expression as
+	 * an array.
+	 */
 	function findEmails() {
 		// Email regex taken from:
 		// https://stackoverflow.com/questions/16424659/check-if-a-string-contains-an-email-address
@@ -41,16 +40,15 @@
 		return msg;
 	}
 
-    /**
-     * Listen for messages from the background script.
-     * Call "find_emails()" or "reset()".
-     */
+	/**
+	 * Listen for messages from the background script.
+	 * Call "find_emails()" or "reset()".
+	 */
 	browser.runtime.onMessage.addListener((message) => {
 		if (message.command === "find emails") {
 			const emails = findEmails();
-			const formatedEmails = formatEmails(emails);
+			const formatedEmails = formatEmails(emails) || '404: Email not found';
 			alert(formatedEmails);
 		}
 	});
-
 })();

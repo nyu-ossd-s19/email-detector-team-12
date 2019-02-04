@@ -22,7 +22,6 @@ function listenForClicks() {
 		/**
 		* Get the active tab and call "findEmails()"
 		*/
-
 		browser.tabs.query({active: true, currentWindow: true})
 		.then(findEmails)
 		.catch(reportError);
