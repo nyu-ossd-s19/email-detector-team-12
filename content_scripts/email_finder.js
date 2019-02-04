@@ -48,7 +48,7 @@
 	browser.runtime.onMessage.addListener((message) => {
 		if (message.command === "find emails") {
 			const emails = findEmails();
-			const formatedEmails = formatEmails(emails);
+			const formatedEmails = formatEmails(emails) || '404: Email not found';
 			alert(formatedEmails);
 		}
 	});
