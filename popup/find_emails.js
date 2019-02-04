@@ -7,7 +7,6 @@ function listenForClicks() {
 	submit.addEventListener("click", (e) => {
 
 		function findEmails(tabs) {
-			console.log('sending message');
 			browser.tabs.sendMessage(tabs[0].id, {
 				command: "find emails",
 			});
@@ -34,7 +33,7 @@ function listenForClicks() {
 * There was an error executing the script.
 */
 function reportExecuteScriptError(error) {
-	console.error(`Failed to execute beastify content script: ${error.message}`);
+	console.error(`Failed to execute email finder content script: ${error.message}`);
 }
 
 /**
