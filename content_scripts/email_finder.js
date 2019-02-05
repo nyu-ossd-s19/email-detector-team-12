@@ -27,28 +27,14 @@
 	}
 
 	/**
-	 * Formats an array of email addresses into a string.
-	 * 
-	 * @param {Array} emails - an array of strings
-	 * @returns {String}
-	 */
-	function formatEmails(emails) {
-		let msg = '';
-		emails.forEach((email, index) => {
-			msg += `${index+1}:\t${email}\n\n`;
-		});
-		return msg;
-	}
-
-	/**
 	 * Listen for messages from the background script.
 	 * Call "find_emails()" or "reset()".
 	 */
 	browser.runtime.onMessage.addListener((message) => {
 		if (message.command === "find emails") {
-			const emails = findEmails();
-			const formatedEmails = formatEmails(emails) || '404: Email not found';
-			alert(formatedEmails);
+			browser.runtime.sendMessage({
+				emails: findEmails(),
+			});
 		}
 	});
 })();
