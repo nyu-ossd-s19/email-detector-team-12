@@ -37,7 +37,6 @@ browser.runtime.onMessage.addListener((message) => {
 			div.classList.add('email-address');
 			div.appendChild(input);
 			div.appendChild(icon);
-			console.log(container);
 			container.appendChild(div);
 		}
 
@@ -47,7 +46,6 @@ browser.runtime.onMessage.addListener((message) => {
 		 * the user.
 		 */
 		if (!emails.length) {
-			console.log('here');
 			displayNoEmailMessage();
 			return;
 		}
