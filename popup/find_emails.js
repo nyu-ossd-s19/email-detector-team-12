@@ -38,6 +38,15 @@ browser.runtime.onMessage.addListener((message) => {
 			div.appendChild(input);
 			div.appendChild(icon);
 			container.appendChild(div);
+
+			/**
+			 * When the user clicks the copy icon, focus the
+			 * email input and copy it to their clipboard.
+			 */
+			icon.addEventListener("click", () => {
+				input.select();
+				document.execCommand("copy");
+			});
 		}
 
 		/**
