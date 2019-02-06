@@ -1,13 +1,13 @@
 (function() {
-    /**
-     * Check and set a global guard variable.
-     * If this content script is injected into the same page again,
-     * it will do nothing next time.
-     */
-    if (window.hasRun) {
-        return;
-    }
-    window.hasRun = true;
+	/**
+	 * Check and set a global guard variable.
+	 * If this content script is injected into the same page again,
+	 * it will do nothing next time.
+	 */
+	if (window.hasRun) {
+		return;
+	}
+	window.hasRun = true;
 
 	/**
 	 * Runs a regular expression to find emails
@@ -22,8 +22,8 @@
 		const { innerHTML } = document.body;
 		const emails = innerHTML.match(regex);
 
-        // Remove duplicates using set conversion
-        return [...new Set(emails)];
+		// Remove duplicates using set conversion
+		return [...new Set(emails)];
 	}
 
 	/**
