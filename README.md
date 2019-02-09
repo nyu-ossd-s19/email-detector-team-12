@@ -12,7 +12,8 @@ from this extension.
 
 # Requirements
 
-Firefox 60 or above
+* Firefox 60 or above
+* Familiarity with Airbnb JS and MDN mainfest style guides
 
 # Installing
 
@@ -27,8 +28,14 @@ The icon should now be presented on your Firefox Browser until you close it
 
 # Contributing
 
-Direct all pull requests to this repository. Make sure to follow a similar style to the
-existing code, and comment your code accordingly.
+Direct all pull requests to this repository. 
+
+We use the following style guides:
+JS, css, html - Airbnb (https://github.com/airbnb/javascript)
+Manifest, json - MDN (https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
+
+Make sure to adhere to the existing coding style for uniformity and ease for other users.  
+
 
 # Support
 
