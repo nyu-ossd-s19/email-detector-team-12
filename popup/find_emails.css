@@ -1,3 +1,4 @@
+/* Using the Airbnb CSS-in-JavaScript Style Guide */
 
 body {
 	text-align: center;
@@ -5,6 +6,7 @@ body {
 	font-family: 'Roboto', sans-serif;
 	color: #222;
 }
+
 button {
 	cursor: pointer;
 	width: 100%;
@@ -14,6 +16,7 @@ button {
 	border-radius: 3px;
 	font-size: 0.8em;
 }
+
 button:hover {
 	background-color: #eee;
 }
