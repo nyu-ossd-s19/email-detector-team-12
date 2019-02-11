@@ -1,10 +1,4 @@
-/*
- * Team12
- * email-detector
- * email_finder.js
- * GPL-3.0
- */
-
+// Using Airbnb JavaScript Style Guide()
 (function() {
     /**
      * Check and set a global guard variable.
@@ -13,7 +7,8 @@
      */
     if (window.hasRun) {
         return;
-    }
+	}
+	
     window.hasRun = true;
 
     /**
