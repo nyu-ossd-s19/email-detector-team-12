@@ -1,15 +1,14 @@
 // Using Airbnb JavaScript Style Guide()
 (function() {
-    /**
-     * Check and set a global guard variable.
-     * If this content script is injected into the same page again,
-     * it will do nothing next time.
-     */
-    if (window.hasRun) {
-        return;
+	/**
+	 * Check and set a global guard variable.
+	 * If this content script is injected into the same page again,
+	 * it will do nothing next time.
+	 */
+	if (window.hasRun) {
+		return;
 	}
-	
-    window.hasRun = true;
+	window.hasRun = true;
 
 	/**
 	 * Runs a regular expression to find emails
@@ -26,22 +25,8 @@
 		const { innerHTML } = document.body;
 		const emails = innerHTML.match(regex);
 
-        // Remove duplicates using set conversion
-        return [...new Set(emails)];
-	}
-
-	/**
-	 * Formats an array of email addresses into a string.
-	 * 
-	 * @param {Array} emails - an array of strings
-	 * @returns {String}
-	 */
-	function formatEmails(emails) {
-		let msg = '';
-		emails.forEach((email, index) => {
-			msg += `${index+1}:\t${email}\n\n`;
-		});
-		return msg;
+		// Remove duplicates using set conversion
+		return [...new Set(emails)];
 	}
 
 	/**
@@ -50,9 +35,9 @@
 	 */
 	browser.runtime.onMessage.addListener((message) => {
 		if (message.command === "find emails") {
-			const emails = findEmails();
-			const formatedEmails = formatEmails(emails) || '404: Email not found';
-			alert(formatedEmails);
+			browser.runtime.sendMessage({
+				emails: findEmails(),
+			});
 		}
 	});
 })();
