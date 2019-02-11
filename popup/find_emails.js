@@ -83,25 +83,19 @@ function listenForClicks() {
 			});
 		}
 
-		/**
-		* Just log the error to the console.
-		*/
+		//Log the error to the console.
 		function reportError(error) {
 			console.error(`Find Emails Failed: ${error}`);
 		}
 
-		/**
-		* Get the active tab and call "findEmails()"
-		*/
+		//Get active tab and call "findEmails()"
 		browser.tabs.query({active: true, currentWindow: true})
 		.then(findEmails)
 		.catch(reportError);
 	});
 }
 
-/**
-* There was an error executing the script.
-*/
+//There was an error executing the script.
 function reportExecuteScriptError(error) {
 	console.error(`Failed to execute email finder content script: ${error.message}`);
 }

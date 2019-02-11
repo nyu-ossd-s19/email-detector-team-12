@@ -1,3 +1,4 @@
+// Using Airbnb JavaScript Style Guide()
 (function() {
 	/**
 	 * Check and set a global guard variable.
@@ -16,8 +17,10 @@
 	 * an array.
 	 */
 	function findEmails() {
-		// Email regex taken from:
-		// https://stackoverflow.com/questions/16424659/check-if-a-string-contains-an-email-address
+		/** 
+		 * Email regex taken from:
+		 * https://stackoverflow.com/questions/16424659/check-if-a-string-contains-an-email-address
+		 */
 		const regex = new RegExp(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
 		const { innerHTML } = document.body;
 		const emails = innerHTML.match(regex);

@@ -1,3 +1,5 @@
+/* Using the Airbnb CSS-in-JavaScript Style Guide */
+
 :root {
 	--primary-background: linear-gradient(#f5f5f5, #eee);
 	--hovered-background: linear-gradient(#eee, #e5e5e5);
@@ -32,6 +34,7 @@ button {
 	border-radius: 3px;
 	font-size: 0.75em;
 }
+
 button:hover {
 	border-color: var(--hovered-border-color);
 	background: var(--hovered-background);
