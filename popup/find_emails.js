@@ -11,7 +11,9 @@ browser.runtime.onMessage.addListener((message) => {
 
 		// Clear any old email addresses.
 		const container = document.querySelector(".email-addresses");
+		const hiddenInput = document.querySelector("#hidden-email-addresses-input");
 		container.innerHTML = "";
+		hiddenInput.value = "";
 
 		/**
 		 * Builds and appends a no emails message to the DOM.
@@ -49,6 +51,31 @@ browser.runtime.onMessage.addListener((message) => {
 		}
 
 		/**
+		 * Builds and displays the copy all button.
+		 */
+		function displayCopyAllButton() {
+			const copyBtn = document.querySelector("#copy-btn");
+			if (copyBtn) return;
+
+			const btn = document.createElement('div');
+			btn.id = "copy-btn";
+			btn.classList.add("menu-btn");
+			btn.setAttribute("title", "Copy all");
+			btn.innerHTML = copyIcon;
+
+			const menuBtns = document.querySelector("#menu-btns");
+			menuBtns.prepend(btn);
+
+			/**
+			 * Add the event listener for the copy all button.
+			 */
+			btn.addEventListener("click", () => {
+				hiddenInput.select();
+				document.execCommand("copy");
+			});
+		}
+
+		/**
 		 * If no emails were found, display the no emails
 		 * message. Otherwise, display the email addresses to
 		 * the user.
@@ -57,9 +84,13 @@ browser.runtime.onMessage.addListener((message) => {
 			displayNoEmailMessage();
 			return;
 		}
-		emails.forEach((email) => {
+		emails.forEach((email, index) => {
+			if (index !== 0) hiddenInput.value += `,${email}`;
+			else hiddenInput.value += email;
 			displayEmailAddress(email);
 		});
+
+		displayCopyAllButton();
 	}
 });
 
