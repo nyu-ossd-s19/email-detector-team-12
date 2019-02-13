@@ -18,7 +18,7 @@
 	function findEmails() {
 		// Email regex taken from:
 		// https://stackoverflow.com/questions/16424659/check-if-a-string-contains-an-email-address
-		const regex = new RegExp(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+		const regex = new RegExp("/(\w|\d|\\.)+(\\+(\w|\d|\\.))*@\w+(\\.[^\W|png|jpg]+)+/", "gi");
 		const { innerHTML } = document.body;
 		const emails = innerHTML.match(regex);
 
