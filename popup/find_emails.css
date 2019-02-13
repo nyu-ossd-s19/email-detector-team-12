@@ -13,6 +13,8 @@ body {
 	width: 200px;
 	font-family: 'Roboto', sans-serif;
 	color: #222;
+	margin: 0px;
+	padding: 10px;
 }
 input {
 	width: 100%;
@@ -43,14 +45,79 @@ button:active {
 	background: var(--focused-background);
 	border-color: var(--focused-border-color);
 }
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding-bottom: 8px;
+}
+#title {
+	display: inline-flex;
+	width: -moz-max-content;
+	padding-top: 2px;
+	margin: 0;
+}
+#menu-btns {
+	display: inline-flex;
+	align-items: center;
+	width: -moz-max-content;
+	border: 1px solid var(--primary-border-color);
+	border-radius: 3px;
+	cursor: pointer;
+}
+.menu-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 18px;
+	height: 15px;
+	padding: 3px;
+	background: var(--primary-background);
+	fill: #555;
+}
+.menu-btn.selected {
+	fill: #4c8bf5;
+}
+.menu-btn.selected.inverted {
+	fill: #d93025;
+}
+.menu-btn:not(:last-child) {
+	border-right: 1px solid var(--primary-border-color);
+}
+.menu-btn:first-child {
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+.menu-btn:last-child {
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+.menu-btn:hover {
+	border-color: var(--hovered-border-color);
+	background: var(--hovered-background);
+}
+.menu-btn:active {
+	background: var(--focused-background);
+	border-color: var(--focused-border-color);
+}
+.menu-btn svg {
+	width: 20px;
+	height: 15px;
+}
+#hidden-email-addresses-input {
+	position: absolute;
+	top: -1000px;
+	width: 0;
+}
 .email-addresses h5 {
 	font-weight: 100;
 }
 .email-address {
 	display: flex;
 	align-items: center;
-	padding-bottom: 9px;
+	padding-bottom: 10px;
 }
+
 .copy-icon {
 	cursor: pointer;
 	display: flex;
@@ -74,4 +141,8 @@ button:active {
 .copy-icon svg {
 	height: 75%;
 	fill: #555;
+}
+h5 {
+	margin: 0;
+	padding-bottom: 15px;
 }
