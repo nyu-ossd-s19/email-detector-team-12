@@ -99,30 +99,84 @@ browser.runtime.onMessage.addListener((message) => {
 * the content script in the page.
 */
 function listenForClicks() {
+	/**
+	 * Returns a string indicator for what to sort the
+	 * email addresses by.
+	 */
+	function getSortBy() {
+		const selected = document.querySelector(".selected");
+		if (selected) {
+			const sortBy = {
+				method: selected.id,
+				isInverted: selected.classList.contains("inverted"),
+			}
+			return sortBy;
+		}
+	}
+
+	/**
+	 * Sends a command to the content script to get all
+	 * email addresses from the DOM.
+	 * We can expect a response containing an array of
+	 * email addresses.
+	 */
+	function findEmails(tabs) {
+		browser.tabs.sendMessage(tabs[0].id, {
+			command: "find emails",
+			sort: getSortBy(),
+		});
+	}
+
+	//Log the error to the console.
+	function reportError(error) {
+		console.error(`Find Emails Failed: ${error}`);
+	}
+
 	const submit = document.querySelector(".js-submit");
 	submit.addEventListener("click", (e) => {
-
-		/**
-		 * Sends a command to the content script to get all
-		 * email addresses from the DOM.
-		 * We can expect a response containing an array of
-		 * email addresses.
-		 */
-		function findEmails(tabs) {
-			browser.tabs.sendMessage(tabs[0].id, {
-				command: "find emails",
-			});
-		}
-
-		//Log the error to the console.
-		function reportError(error) {
-			console.error(`Find Emails Failed: ${error}`);
-		}
-
 		//Get active tab and call "findEmails()"
 		browser.tabs.query({active: true, currentWindow: true})
 		.then(findEmails)
 		.catch(reportError);
+	});
+
+	const sortBtns = document.querySelectorAll(".sort-btn");
+	sortBtns.forEach(sortBtn => {
+		sortBtn.addEventListener("mousedown", () => {
+
+			/**
+			 * This is kind of convoluted. Feel free to try and
+			 * clean this up.
+			 * Essentially, the menu buttons have three states:
+			 *   1. inactive
+			 *   2. selected
+			 *   3. inverted
+			 * This is the cycle of states and the list is sorted
+			 * according to the state of these buttons.
+			 */
+			const curr = document.querySelector(".selected");
+			const isInverted = sortBtn.classList.contains("inverted");
+			if (curr) {
+				if (curr === sortBtn) {
+					if (isInverted) curr.classList.remove("selected", "inverted");
+					else curr.classList.add("inverted");
+				} else {
+					curr.classList.remove("selected", "inverted");
+					sortBtn.classList.add("selected");
+				}
+			} else {
+				sortBtn.classList.add("selected");
+			}
+
+			/**
+			 * Could optimize this by using the stored emails in
+			 * the hidden input, but for the time being, this
+			 * will suffice (efficiency isn't really a problem)
+			 */
+			browser.tabs.query({active: true, currentWindow: true})
+			.then(findEmails)
+			.catch(reportError);
+		});
 	});
 }
 
