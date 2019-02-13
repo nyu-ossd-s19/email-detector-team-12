@@ -27,6 +27,7 @@
 		const regex = new RegExp(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
 		const { innerHTML } = document.body;
 		let emails = innerHTML.match(regex);
+		if (!emails) return [];
 		if (!sortBy) {
 			return [...new Set(emails)];
 		}
