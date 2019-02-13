@@ -89,7 +89,6 @@ browser.runtime.onMessage.addListener((message) => {
 			else hiddenInput.value += email;
 			displayEmailAddress(email);
 		});
-
 		displayCopyAllButton();
 	}
 });
@@ -99,6 +98,7 @@ browser.runtime.onMessage.addListener((message) => {
 * the content script in the page.
 */
 function listenForClicks() {
+
 	/**
 	 * Returns a string indicator for what to sort the
 	 * email addresses by.
@@ -173,9 +173,12 @@ function listenForClicks() {
 			 * the hidden input, but for the time being, this
 			 * will suffice (efficiency isn't really a problem)
 			 */
-			browser.tabs.query({active: true, currentWindow: true})
-			.then(findEmails)
-			.catch(reportError);
+			const emails = document.querySelector(".email-addresses");
+			if (emails.childElementCount) {
+				browser.tabs.query({active: true, currentWindow: true})
+				.then(findEmails)
+				.catch(reportError);
+			}
 		});
 	});
 }
