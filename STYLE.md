@@ -1,6 +1,6 @@
 # Email Detector Style Guide
 
-* Our attempt to making JS somewhat reasonable, and highly readable *
+*Our attempt to making JS somewhat reasonable, and highly readable*
 
 ## Contents
 1. [Naming](#naming-sec)
