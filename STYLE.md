@@ -11,7 +11,7 @@
 6. [Popup & Manifest Styling](#popup-examples) 
 
 
-### <a name="naming-sec"></a>Naming
+## <a name="naming-sec"></a>Naming
 * Use descriptive naming, that makes it easy to read your code. 
 * When naming functions, instances, and objects, use camelCase.
 * The use of PascalCase is encouraged when naming classes or constuctors.
@@ -19,7 +19,7 @@
 * Do not use trailing and leading underscores. 
 
 
-### <a name="functions-sec"></a>Functions 
+## <a name="functions-sec"></a>Functions 
 * We highly encourage the use of High Order Functions to keep pur code base compact.
 * Try to use named function expressions, as opposed to function declarations. 
     * We encourage this because declarations are hoisted, which makes it easy to reference functions that are yet to be declared.
@@ -37,7 +37,7 @@
 * Last but not least, please don't use var. 
 
 
-### <a name="comments-sec"></a>Comments 
+## <a name="comments-sec"></a>Comments 
 * Avoid using single line comments, unless they are used in the same line as code. 
 * For all new line comments, even if the comment is just one line, use multi-line comments for readability and to direct reader attention.
 * Use /** ... */ for multi-line comments, with each comment on a new line with a leading \*.
