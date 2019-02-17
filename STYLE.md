@@ -29,7 +29,7 @@
     * arguments, though useful in its time is slowly getting outdated with the popularity of the rest operator. 
 
 
-### <a name="variables-sec"></a>Varibles 
+## <a name="variables-sec"></a>Variables 
 * NEVER use var. We believe that var is truly evil due to its unpredictable nature. 
     * Always use const or let instead to avoid taking up the global namespace. 
 * It is good practice to group all lets and consts together for readability. 
