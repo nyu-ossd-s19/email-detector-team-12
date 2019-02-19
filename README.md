@@ -30,9 +30,7 @@ The icon should now be presented on your Firefox Browser until you close it
 
 Direct all pull requests to this repository. 
 
-We use the following style guides:
-* JS, css, html - Airbnb (https://github.com/airbnb/javascript)
-* Manifest, json - MDN (https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
+Please refer to our very own [Style Guide](https://github.com/nyu-ossd-s19/email-detector-team-12/blob/master/STYLE.md). 
 
 Make sure to adhere to the existing coding style for uniformity and ease for other users.  
 
