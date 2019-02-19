@@ -32,7 +32,9 @@ Direct all pull requests to this repository.
 
 Please refer to our very own [Style Guide](https://github.com/nyu-ossd-s19/email-detector-team-12/blob/master/STYLE.md). 
 
-Make sure to adhere to the existing coding style for uniformity and ease for other users.  
+Make sure to adhere to the existing coding style for uniformity and ease for other users.
+
+For more information, please see `CONTRIBUTING.md`.
 
 
 # Support
